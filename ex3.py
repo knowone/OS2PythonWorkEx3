@@ -1,6 +1,22 @@
+"""
+This program was written by Omer Schwartz
+    email: kno34w.one.omer at2 g[mail] dot com (remove numbers and brackets)
+
+    This program performs 2 assignments:
+
+    1. from a list of top 30 cities and a file with all the cities'
+    information in the US extract and display their postal codes using only
+    Regular Expressions.
+
+    2. from a log file of a program extract the file number and file name
+    that was successfully tested, using only regular expressions and output
+    that list into a file.
+"""
+# ------------------------------------------------------------------------------
 import re
 
 
+# ------------------------------------------------------------------------------
 # Assignment 1:
 def find_top_city_postcode():
     """
@@ -35,11 +51,12 @@ def find_top_city_postcode():
         top_cities_content)
     city_data_content = open("us_postal_codes.csv", "r").read()
 
-    for i, city in zip(range(1, 31), top_cities):
+    for i, city in zip(range(1, len(top_cities) + 1), top_cities):
         print(i, ":", city[0],
               search_postcode(city[0], city[1], city_data_content))
 
 
+# ------------------------------------------------------------------------------
 # Assignment 2:
 def list_run_correctly(log_filename, output_filename):
     """
@@ -61,7 +78,8 @@ def list_run_correctly(log_filename, output_filename):
     result_file.close()
 
 
-def main():
+# ------------------------------------------------------------------------------
+def run():
     print("----------------- Assignment 1: ----------------------\n")
     print("Listing postcodes for top 30 biggest cities in the US:\n")
     print("------------------------------------------------------\n")
@@ -72,4 +90,7 @@ def main():
     print("Check file \"results.txt\"\n")
     print("------------------------------------------------------")
 
-main()
+
+# ------------------------------------------------------------------------------
+
+run()
