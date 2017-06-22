@@ -1,6 +1,7 @@
 import re
 
 
+# Assignment 1:
 def find_top_city_postcode():
     """
     Cool, but inefficient, solution using a regex search and a custom
@@ -10,7 +11,8 @@ def find_top_city_postcode():
     the city data file for the postcode. Since their could be many  postcodes
     for the same city, we give only the last one - as in the examples given.
     """
-    def search_post_code(city_name, state, database):
+
+    def search_postcode(city_name, state, database):
         """
         Search the regex with city and state strings in the database.
         The regex we search is in the given form: (\d*),{city_name},{state}
@@ -35,9 +37,10 @@ def find_top_city_postcode():
 
     for i, city in zip(range(1, 31), top_cities):
         print(i, ":", city[0],
-              search_post_code(city[0], city[1], city_data_content))
+              search_postcode(city[0], city[1], city_data_content))
 
 
+# Assignment 2:
 def list_run_correctly(log_filename, output_filename):
     """
     Print to file a list of all the correctly run files as listed in the
