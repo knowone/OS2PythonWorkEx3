@@ -19,7 +19,7 @@ def find_top_city_postcode():
         my_regex = r"(\d*)," + re.escape(city_name) + "," + re.escape(state)
         try:
             result = re.findall(my_regex, database)
-            print(city_name, result[-1])
+            return result[-1]
         except KeyError:
             pass
 
@@ -28,16 +28,17 @@ def find_top_city_postcode():
                             , top_cities_content)
     city_data_content = open("us_postal_codes.csv", "r").read()
 
-    for city in top_cities:
-        search_post_code(city[0], city[1], city_data_content)
+    for i, city in zip(range(1, 31), top_cities):
+        print(i, ":", city[0],
+              search_post_code(city[0], city[1], city_data_content))
 
 
 def main():
-    print("------------------------------------------------------")
-    print("Listing postcodes for top 30 biggest cities in the US:")
+    print("----------------- Assignment 1: ----------------------\n")
+    print("Listing postcodes for top 30 biggest cities in the US:\n")
     print("------------------------------------------------------\n")
     find_top_city_postcode()
-    print("------------------------------------------------------")
+    print("\n----------------- Assignment 2: ----------------------")
     print("\nCreating file with all files run correctly...\n")
     list_run_correctly()
     print("Check file \"result.txt\"\n")
