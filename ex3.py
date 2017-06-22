@@ -3,8 +3,9 @@ import re
 
 def list_run_correctly():
     atom_content = open("atoms2.log", "r").read()
-    atom_results = re.findall(r"RUN\s(\d*).*FILE\s(\w*.dat).\s\d*.\d*\sCPU"
-                              , atom_content)
+    atom_results = re.findall(
+        r"RUN\s(\d*).*FILE\s(\w*.dat).\s\d*.\d*\sCPU",
+        atom_content)
 
     result_file = open("result.txt", "w")
     for atom in atom_results:
@@ -24,8 +25,9 @@ def find_top_city_postcode():
             pass
 
     top_cities_content = open("largest_cities.txt", "r").read()
-    top_cities = re.findall(r"\d+([A-Z][A-Za-z\s?]*[a-z])([A-Z][A-Za-z\s?]*)\d"
-                            , top_cities_content)
+    top_cities = re.findall(
+        r"\d+([A-Z][A-Za-z\s?]*[a-z])([A-Z][A-Za-z\s?]*)\d",
+        top_cities_content)
     city_data_content = open("us_postal_codes.csv", "r").read()
 
     for i, city in zip(range(1, 31), top_cities):
@@ -43,4 +45,5 @@ def main():
     list_run_correctly()
     print("Check file \"result.txt\"\n")
     print("------------------------------------------------------")
+
 main()
